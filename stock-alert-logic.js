@@ -11,32 +11,32 @@
   var stockData = firebase.database();
 
   function handleChildSnapshot(childSnapshot) {
-    // Store everything into a variable.
-    var stockName = childSnapshot.val().stockName;
-    let maximum = childSnapshot.val().maximum;
-    let minimum = childSnapshot.val().minimum;
-    
-    // fetches stock data and stores locally
-    $.get(`https://api.iextrading.com/1.0/stock/${stockName}/delayed-quote`, function (data) {
+      // Store everything into a variable.
+      var stockName = childSnapshot.val().stockName;
+      let maximum = childSnapshot.val().maximum;
+      let minimum = childSnapshot.val().minimum;
 
-        let lastPrice = data.delayedPrice
-        let lastTime = new Date(data.delayedPriceTime)
+      // fetches stock data and stores locally
+      $.get(`https://api.iextrading.com/1.0/stock/${stockName}/delayed-quote`, function (data) {
 
-        if (lastPrice > maximum || lastPrice < minimum) {
-            alert(`Hey! your stock was sold outside your range\nminimum: ${minimum} and maximum ${maximum}. Its latest trade price was ${lastPrice}`)
-        }
-        // Add stock information to UI
-        $("#stock-table > tbody").append(
-            $("<tr>").append(
-                $("<td>").text(stockName),
-                $("<td>").text(minimum),
-                $("<td>").text(maximum),
-                $("<td>").text(lastPrice),
-                $("<td>").text(lastTime)
-            )
-        );
-    });
-}
+          let lastPrice = data.delayedPrice
+          let lastTime = new Date(data.delayedPriceTime)
+
+          if (lastPrice > maximum || lastPrice < minimum) {
+              alert(`Hey! your stock was sold outside your range\nminimum: ${minimum} and maximum ${maximum}. Its latest trade price was ${lastPrice}`)
+          }
+          // Add stock information to UI
+          $("#stock-table > tbody").append(
+              $("<tr>").append(
+                  $("<td>").text(stockName),
+                  $("<td>").text(minimum),
+                  $("<td>").text(maximum),
+                  $("<td>").text(lastPrice),
+                  $("<td>").text(lastTime)
+              )
+          );
+      });
+  }
 
   // Button for adding stocks
   $("#add-stock-btn").on("click", function (event) {
@@ -77,12 +77,12 @@
 
   // Button for clearing database and existing table
   $("#wipe-database-btn").on("click", function (event) {
-    // Prevent the default form submit behavior
-    event.preventDefault();
+      // Prevent the default form submit behavior
+      event.preventDefault();
 
-    stockData.ref().remove();
-    $("#stock-table tbody tr").remove();
-});
+      stockData.ref().remove();
+      $("#stock-table tbody tr").remove();
+  });
 
   // Runs on page load or when ne child is added
   stockData.ref().on("child_added", function (childSnapshot, prevChildKey) {
@@ -102,7 +102,6 @@
       });
   }
 
+  // run checkPrices every fiveMinutes
   let fiveMinutes = 1000 * 60 * 5
   setInterval(checkPrices, fiveMinutes)
-
-  
