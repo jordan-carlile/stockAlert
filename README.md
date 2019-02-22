@@ -25,23 +25,23 @@ This has the potential downside that all users are able to add and remove entrie
 ## Potential Enhancements:
 
 ### Usability:
-  #### Row Specific Delete:
+  Row Specific Delete:
     User should be able to delete one row in the table and its corresponding data in the database.
       This would be accomplished by adding a delete button for each row.
       I would also need to add an html attribute on each row that contains the uuid of the stored firebase object to know which document to delete on the backend.
 
-  #### Row Specific Check Price Update:
+  Row Specific Check Price Update:
     User should be able to update stock information for one row in the table and its corresponding data in the database.
       This would be accomplished by adding a update button for each row.
       I would also need to add an html attribute on each row that contains the uuid of the stored firebase object to know which document to update on the backend.
   
-  #### Adding Pagination:
+  Adding Pagination:
     - In it's current state, the table will just become longer and longer when new stocks are added.
     - This can be resolved by adding pagination to the table.
 
 ### Security:
 
-  #### Adding Authentication:
+  Adding Authentication:
     * After adding authentication, each user should have their own stockAlert list. Currently there is only one global stockAlert list based on documents in the Firebase Realtime Database
     * In order to implement this, a user id would need to be added to the model for storing data to associate the data with a specific authenticated user.
 
