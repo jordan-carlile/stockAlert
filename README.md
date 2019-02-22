@@ -25,30 +25,30 @@ This has the potential downside that all users are able to add and remove entrie
 ## Potential Enhancements:
 
 ### Usability:
-  Row Specific Delete:
-    User should be able to delete one row in the table and its corresponding data in the database.
-      This would be accomplished by adding a delete button for each row.
-      I would also need to add an html attribute on each row that contains the uuid of the stored firebase object to know which document to delete on the backend.
+  Row Specific Delete:<br/>
+    User should be able to delete one row in the table and its corresponding data in the database.<br/>
+      This would be accomplished by adding a delete button for each row.<br/>
+      I would also need to add an html attribute on each row that contains the uuid of the stored firebase object to know which document to delete on the backend.<br/>
 
-  Row Specific Check Price Update:
-    User should be able to update stock information for one row in the table and its corresponding data in the database.
-      This would be accomplished by adding a update button for each row.
-      I would also need to add an html attribute on each row that contains the uuid of the stored firebase object to know which document to update on the backend.
+  Row Specific Check Price Update:<br/>
+    User should be able to update stock information for one row in the table and its corresponding data in the database.<br/>
+      This would be accomplished by adding a update button for each row.<br/>
+      I would also need to add an html attribute on each row that contains the uuid of the stored firebase object to know which document to update on the backend.<br/>
   
-  Adding Pagination:
-    - In it's current state, the table will just become longer and longer when new stocks are added.
-    - This can be resolved by adding pagination to the table.
+  Adding Pagination:<br/>
+    In it's current state, the table will just become longer and longer when new stocks are added.<br/>
+    This can be resolved by adding pagination to the table.<br/>
 
 ### Security:
 
-  Adding Authentication:
-    * After adding authentication, each user should have their own stockAlert list. Currently there is only one global stockAlert list based on documents in the Firebase Realtime Database
-    * In order to implement this, a user id would need to be added to the model for storing data to associate the data with a specific authenticated user.
+  Adding Authentication:<br/>
+    After adding authentication, each user should have their own stockAlert list. Currently there is only one global stockAlert list based on documents in the Firebase Realtime Database.<br/>
+    In order to implement this, a user id would need to be added to the model for storing data to associate the data with a specific authenticated user.<br/>
 
 ### Scalability:
 
-  #### Reducing Redundent Data:
-    * Currently each active client will be making api calls and interacting with the datastore directly, If there ware more users this could result in redundent data.
+  Reducing Redundent Data:<br/>
+    Currently each active client will be making api calls and interacting with the datastore directly, If there ware more users this could result in redundent data.
 
-  #### Rate Limiting:
-    * Creating a backend would also allow me to implement rate limiting. In its current state a user has no limit to how often they can make api calls or store data to the datastore.
+  Rate Limiting:<br/>
+    Creating a backend would also allow me to implement rate limiting. In its current state a user has no limit to how often they can make api calls or store data to the datastore.
