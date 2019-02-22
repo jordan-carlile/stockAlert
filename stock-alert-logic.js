@@ -22,8 +22,9 @@
           let lastPrice = data.delayedPrice
           let lastTime = new Date(data.delayedPriceTime)
 
+          // alert if stock price is outside of provided range
           if (lastPrice > maximum || lastPrice < minimum) {
-              alert(`Hey! your stock was sold outside your range\nminimum: ${minimum} and maximum ${maximum}. Its latest trade price was ${lastPrice}`)
+              alert(`Hey! Your stock was sold outside your range\nminimum: ${minimum} and maximum ${maximum}. The latest trade price was ${lastPrice}.`)
           }
           // Add stock information to UI
           $("#stock-table > tbody").append(
@@ -79,9 +80,20 @@
   $("#wipe-database-btn").on("click", function (event) {
       // Prevent the default form submit behavior
       event.preventDefault();
-
+      // Wipe entire database!
       stockData.ref().remove();
+
+      // Clear HTML table on front end
       $("#stock-table tbody tr").remove();
+  });
+
+  $("#update-stocks-btn").on("click", function (event) {
+      // Prevent the default form submit behavior
+      event.preventDefault();
+
+      // Run check prices manually instead of waiting for interval
+      checkPrices();
+
   });
 
   // Runs on page load or when ne child is added
@@ -94,8 +106,13 @@
   // checkPrices clears the existing table and checks the prices of the saved stocks and repopulates the table
   // Depends on handleChildSnapshot
   function checkPrices() {
+      // Remove stocks from HTML table on front end
       $("#stock-table tbody tr").remove();
+
+      // Occurs only once, "full DB read"
       stockData.ref().once("value", function (snapshot) {
+
+          // Iterate through each document in DB Collection
           snapshot.forEach(function (childSnapshot) {
               handleChildSnapshot(childSnapshot);
           });

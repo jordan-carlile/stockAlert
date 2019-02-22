@@ -41,9 +41,9 @@
                             <thead>
                                 <tr>
                                     <th>Stock Name</th>
-                                    <th>Your Minimum</th>
-                                    <th>Your Maximum</th>
-                                    <th>Last Reported Price</th>
+                                    <th>Your Minimum ($)</th>
+                                    <th>Your Maximum ($)</th>
+                                    <th>Last Reported Price ($)</th>
                                     <th>Last Reported Time</th>
                                 </tr>
                             </thead>
@@ -69,11 +69,13 @@
                                 <input type="text" class="form-control" id="minimum-input">
                             </div>
                             <div class="form-group">
-                                <label for="maximum-input">Your Minimum</label>
+                                <label for="maximum-input">Your Maximum</label>
                                 <input type="text" class="form-control" id="maximum-input">
                             </div>
-                            <button type="submit" class="btn btn-primary" id="add-stock-btn">Submit</button>
-                            <button type="submit" class="btn btn-danger" id="wipe-database-btn">Wipe Database</button>
+                            <button type="submit" class="btn btn-primary" id="add-stock-btn">Add New Stock</button>
+                            <button type="submit" class="btn btn-info" id="update-stocks-btn">Update All Stock Prices</button>
+                            <button type="submit" class="btn btn-danger" id="wipe-database-btn" style="float:right">Wipe
+                                Database</button>
 
                         </form>
                     </div>
