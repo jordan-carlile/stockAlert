@@ -27,13 +27,13 @@ This has the potential downside that all users are able to add and remove entrie
 ### Usability:
   #### Row Specific Delete:
     User should be able to delete one row in the table and its corresponding data in the database.
-      1. This would be accomplished by adding a delete button for each row
-      2. I would also need to add an html attribute on each row that contains the uuid of the stored firebase object to know which document to delete on the backend
+      This would be accomplished by adding a delete button for each row.
+      I would also need to add an html attribute on each row that contains the uuid of the stored firebase object to know which document to delete on the backend.
 
   #### Row Specific Check Price Update:
     User should be able to update stock information for one row in the table and its corresponding data in the database.
-      1) This would be accomplished by adding a update button for each row
-      2) I would also need to add an html attribute on each row that contains the uuid of the stored firebase object to know which document to update on the backend
+      This would be accomplished by adding a update button for each row.
+      I would also need to add an html attribute on each row that contains the uuid of the stored firebase object to know which document to update on the backend.
   
   #### Adding Pagination:
     - In it's current state, the table will just become longer and longer when new stocks are added.
