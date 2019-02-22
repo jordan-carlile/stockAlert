@@ -7,7 +7,7 @@ Alerts you when your chosen stocks fall above or below your specified range
 * JQuery
 * Twitter Bootstrap
 
-Hosted with github pages, [live link](https://jordan-carlile.github.io/stockAlert/) . If you want to run it locally just clone and open in your browser.
+Hosted with github pages, [live link](https://jordan-carlile.github.io/stockAlert/) . If you want to run it locally just clone and open index.html in your browser.
 
 ## Design Decisions:
 I chose not to use a framework for this project as it seemed like a fairly simple project to build using jquery.
